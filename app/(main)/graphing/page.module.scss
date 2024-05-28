@@ -1,0 +1,82 @@
+.page {
+    display: grid;
+    grid-template-columns: 16rem auto;
+}
+$border: 1px solid var(--border-color);
+.explorer {
+    display: grid;
+    overflow: hidden;
+    grid-template-rows: 2rem auto 2rem;
+    & > header,
+    & > footer {
+        min-height: 2rem;
+        display: flex;
+        align-items: center;
+        padding-inline-start: 1rem;
+    }
+    & > header {
+        border-bottom: $border;
+    }
+    & > footer {
+        border-top: $border;
+    }
+    & > .list {
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .item {
+            position: relative;
+            overflow: hidden;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            border-bottom: $border;
+            .indicator {
+                height: 0.5rem;
+                min-width: 0.5rem;
+                margin: 8px;
+                border-radius: 50%;
+            }
+            input {
+                font-family: var(--font-family--monospace);
+                border-left: $border;
+                height: 3rem;
+                padding-inline: 8px;
+            }
+            .removeFunction__button {
+                background-color: var(--secondary-color-900);
+                $size: 2rem;
+                height: $size;
+                min-width: $size;
+                display: grid;
+                place-content: center;
+                position: absolute;
+                right: -3rem;
+                top: 0;
+                transition: right 100ms linear;
+                svg {
+                    $size: 1rem;
+                    width: $size;
+                    height: $size;
+                }
+            }
+
+            &:hover {
+                .removeFunction__button {
+                    right: 0;
+                }
+            }
+        }
+    }
+    border-right: $border;
+}
+
+.workspace {
+    position: relative;
+}
+
+.plotContainer {
+    position: absolute;
+    inset: 0;
+}

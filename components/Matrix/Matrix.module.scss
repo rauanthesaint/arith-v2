@@ -1,0 +1,43 @@
+.matrix {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+        rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    position: absolute;
+    background: var(--secondary-color-800);
+    min-width: 16rem;
+    width: max-content;
+    height: max-content;
+    border-radius: 8px;
+    font-family: var(--font-family--monospace);
+
+    header {
+        padding: 4px 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        div {
+            display: flex;
+            gap: 4px;
+        }
+    }
+    footer {
+        padding: 12px 1rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        font-family: var(--font-family--monospace);
+    }
+    .table {
+        width: 100%;
+        border-spacing: 4px;
+        display: grid;
+        gap: 4px;
+        padding: 4px;
+        .cell {
+            padding: 8px;
+            display: grid;
+            place-content: center;
+            border: 1px solid var(--secondary-color-700);
+            border-radius: 4px;
+        }
+    }
+}

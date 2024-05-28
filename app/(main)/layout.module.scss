@@ -1,0 +1,20 @@
+// @/(main)/layout.scss
+.layout {
+    height: 100vh;
+    display: grid;
+    grid-template: 'sidebar header' 4rem 'sidebar main' auto / 5rem auto;
+
+    & > aside {
+        grid-area: sidebar;
+    }
+    & > header {
+        grid-area: header;
+    }
+    & > main {
+        grid-area: main;
+        border-top: 1px solid var(--border-color);
+        border-left: 1px solid var(--border-color);
+        border-top-left-radius: 1rem;
+        overflow: hidden;
+    }
+}

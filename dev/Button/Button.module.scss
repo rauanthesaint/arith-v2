@@ -1,0 +1,131 @@
+@import '../globals.scss';
+$primary-button--background-color: $primary-color-600;
+$secondary-button--background-color: $secondary-color-800;
+$disabled-button--background-color: $secondary-color-700;
+$label-color--light: $secondary-color-50;
+$label-color--dark: $secondary-color-800;
+$label-color-disabled: $secondary-color-500;
+$border-color: $secondary-color-700;
+$destructive-color: $error-color;
+// GENERAL ====================================================================
+.button {
+    width: max-content;
+    height: max-content;
+    max-width: 400px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    opacity: 1;
+    .label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+.button.fullWidth {
+    width: 100%;
+}
+// SIZE HIERARCHY =============================================================
+// Small Button ---------------------------------------------------------------
+.button.sm {
+    padding: 10px 12px;
+    svg {
+        $size: 16px;
+        width: $size;
+        height: $size;
+    }
+    &.iconOnly {
+        padding: 10px;
+    }
+}
+// Medium Button --------------------------------------------------------------
+.button.md {
+    padding: 12px 16px;
+    svg {
+        $size: 20px;
+        width: $size;
+        height: $size;
+    }
+    &.iconOnly {
+        padding: 12px;
+    }
+}
+// Large Button ---------------------------------------------------------------
+.button.lg {
+    padding: 16px 20px;
+    svg {
+        $size: 24px;
+        width: $size;
+        height: $size;
+    }
+    &.iconOnly {
+        padding: 16px;
+    }
+}
+// COLOR HIERARCHY ============================================================
+// Primary Button -------------------------------------------------------------
+.button.primary {
+    background-color: $primary-button--background-color;
+    .label {
+        color: $label-color--light;
+    }
+}
+// Secondary Button -----------------------------------------------------------
+.button.secondary {
+    background-color: $secondary-button--background-color;
+    border: 1px solid $border-color;
+    .label {
+        color: $label-color--light;
+    }
+}
+// Tertiary Button ------------------------------------------------------------
+.button.tertiary {
+    background-color: transparent;
+    .label {
+        color: $label-color--light;
+    }
+}
+// Destructive Button ---------------------------------------------------------
+.button.destructive {
+    background-color: transparent;
+    .label {
+        color: $destructive-color;
+    }
+}
+// BEHAVIOR ===================================================================
+.button {
+    transition: opacity 100ms linear, background-color 100ms linear,
+        transform 100ms ease-in-out;
+}
+.button:disabled {
+    cursor: not-allowed;
+    background-color: $disabled-button--background-color;
+    .label {
+        color: $label-color-disabled;
+    }
+}
+@media (hover: hover) and (pointer: fine) {
+    .button:enabled {
+        &.primary:hover {
+            opacity: 0.9;
+        }
+        &.secondary:hover {
+            opacity: 0.9;
+        }
+        &.tertiary:hover {
+            background-color: $secondary-button--background-color;
+        }
+        &.destructive:hover {
+            background-color: rgba($color: $destructive-color, $alpha: 0.1);
+        }
+    }
+}
+.button:focus-visible {
+    outline: 1px solid $primary-button--background-color;
+    outline-offset: 2px;
+}
+.button:enabled:active {
+    transform: scale(0.98);
+}
