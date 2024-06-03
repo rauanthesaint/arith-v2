@@ -1,0 +1,30 @@
+$default-width: 95%;
+
+.header {
+    height: 4rem;
+
+    border-bottom: 1px solid hsl(var(--app-neutral-700));
+    & > .container {
+        height: 100%;
+        width: min($default-width, 1280px);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.layout .container {
+    margin-inline: auto;
+}
+
+.layout > .container {
+    width: min($default-width, 480px);
+    main form {
+        margin-top: clamp(5vw, 20%, 7vw);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}

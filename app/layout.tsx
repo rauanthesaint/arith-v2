@@ -3,6 +3,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import 'tracey-ui/dist/cjs/index.css'
+import { Providers } from './provider'
 // WebApp metadata
 export const metadata: Metadata = {
     title: 'Arithmetica',
@@ -27,7 +28,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <div className="mobile__container">{children}</div>
+                <Providers>{children}</Providers>
             </body>
         </html>
     )
