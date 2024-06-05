@@ -12,7 +12,8 @@ export default function Layout({
     children,
 }: Readonly<{ children: ReactNode }>) {
     useLayoutEffect(() => {
-        const token = Cookies.get('jwt')
+        // const token = Cookies.get('jwt')
+        const token = true
         if (!token) {
             redirect('/api/auth/signin')
         }

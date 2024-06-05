@@ -36,4 +36,9 @@ export const calculators: item[] = [
         title: 'Matrix',
         link: '/matrix',
     },
+    {
+        icon: <Ruler/>,
+        title: 'Converter',
+        link: '/converter',
+    },
 ]
