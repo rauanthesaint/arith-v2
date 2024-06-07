@@ -1,0 +1,223 @@
+$header-height: 2rem;
+$padding: 1rem;
+$gap: 4px;
+$brs: 4px;
+$svg-unit: 4px;
+// GENERAL ==========================================================================
+.calculator {
+    width: 20rem;
+    height: 35rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-radius: $brs + $gap;
+    background: hsl(var(--app-default-100));
+    grid-template-rows: $header-height 7rem auto;
+    overflow: hidden;
+
+    svg {
+        $size: calc($svg-unit * 5);
+        width: $size;
+        height: $size;
+    }
+
+    // Transitions
+    display: none;
+    &.visible {
+        display: grid;
+    }
+    &.collapsed {
+        height: 2rem;
+    }
+    transition: height 150ms ease-in-out;
+
+    // Positioning (indev)
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    z-index: 9;
+}
+// CALCULATOR HEADER ================================================================
+.calculator > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .modal__control__section {
+        display: flex;
+        button {
+            height: $header-height;
+            padding-inline: 0.75rem;
+            display: grid;
+            place-content: center;
+        }
+    }
+    .modal__title {
+        margin-left: $padding;
+    }
+
+    // Transitions
+    .modal__control__section button {
+        transition: background-color 100ms linear;
+        &:hover {
+            background-color: hsl(var(--app-default-200));
+        }
+        &.primary:hover {
+            background-color: hsl(var(--app-danger-500));
+        }
+    }
+}
+// CALCULATOR DISPLAY ===============================================================
+.calculator > .display {
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: var(--ff-mono);
+    .error__logger {
+        width: 100%;
+        color: hsl(var(--app-danger-500));
+    }
+}
+// CALCULATOR KEYBOARD ==============================================================
+.calculator > .container {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+    padding: $gap;
+    .keyboard {
+        height: 100%;
+        display: grid;
+        grid-template: repeat(6, 1fr) / repeat(4, 1fr);
+        gap: $gap;
+        button {
+            svg {
+                $size: calc($svg-unit * 6);
+                width: $size;
+                height: $size;
+            }
+            display: grid;
+            place-content: center;
+            background-color: hsl(var(--app-default-200));
+            border-radius: $brs;
+            font-size: 18px;
+            &.primary {
+                background-color: hsl(var(--app-priamry-500));
+            }
+            &.secondary {
+                background-color: hsl(var(--app-default-300));
+            }
+        }
+    }
+    .keyboard__memory {
+        display: flex;
+        justify-content: space-between;
+        gap: $gap;
+        button {
+            width: 100%;
+            height: 2rem;
+            border-radius: $brs;
+            font-size: 12px;
+            svg {
+                $size: calc($svg-unit * 4);
+                width: $size;
+                height: $size;
+            }
+        }
+    }
+
+    // Transitions
+    $duration: 100ms;
+    .keyboard button {
+        transition: opacity $duration linear, transform $duration linear;
+        &:hover {
+            opacity: 0.9;
+        }
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    .keyboard__memory button {
+        transition: background-color $duration linear;
+        &:hover {
+            background-color: hsl(var(--app-default-200));
+        }
+    }
+}
+// CALCULATOR HISTORY ===============================================================
+.calculator .drawer {
+    .copied {
+        background: hsl(var(--app-default-100));
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translate(-50%, calc(100% + 1rem));
+        border: 1px solid hsl(var(--app-success-200));
+        color: hsl(var(--app-success-200));
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 12px;
+        svg {
+            $size: 14px;
+            width: $size;
+            height: $size;
+        }
+        transition: transform 100ms ease-out;
+        &.active {
+            transform: translate(-50%, 0);
+        }
+    }
+    background-color: hsl(var(--app-default-100));
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    height: 30rem;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+    ul {
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: var(--secondary-color-700);
+            transition: background-color 100ms linear;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color-600);
+        }
+    }
+
+    li {
+        &:not(:last-child) {
+            border-bottom: 1px solid hsl(var(--app-default-200));
+        }
+        text-align: right;
+        padding: 14px 8px;
+    }
+}

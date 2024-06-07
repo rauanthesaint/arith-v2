@@ -1,15 +1,14 @@
 'use client'
 
-import { ReactNode } from 'react'
+import { ReactNode, useLayoutEffect } from 'react'
 import styles from './layout.module.scss'
-import Image from 'next/image'
-import logo from '@/public/static/img/logo.svg'
 import { Button, Link } from '@nextui-org/react'
-import { usePathname } from 'next/navigation'
-import { Switch } from '@nextui-org/react'
+import Cookies from 'js-cookie'
+import { redirect, usePathname } from 'next/navigation'
+// import { Switch } from '@nextui-org/react'
 
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+// import { useTheme } from 'next-themes'
+// import { useEffect, useState } from 'react'
 
 const switchRoutes = (path: string): { title: string; link: string } => {
     switch (path) {
@@ -30,28 +29,34 @@ export default function Layout({
     const path = pathname.slice(startIndex)
     const details = switchRoutes(path)
 
-    const [mounted, setMounted] = useState(false)
-    const { theme, setTheme } = useTheme()
-
-    useEffect(() => {
-        setMounted(true)
+    useLayoutEffect(() => {
+        const token = Cookies.get('jwt')
+        if (token) {
+            redirect('/settings')
+        }
     }, [])
 
-    if (!mounted) return null
+    // const [mounted, setMounted] = useState(false)
+    // const { theme, setTheme } = useTheme()
+
+    // useEffect(() => {
+    //     setMounted(true)
+    // }, [])
+
+    // if (!mounted) return null
 
     return (
         <div className={styles.layout}>
             <header className={styles.header}>
                 <div className={styles.container}>
-                    <Image src={logo} alt="Arithmetica Logo" height={36} />
-                    <Switch
+                    {/* <Switch
                         isSelected={theme === 'dark'}
                         onValueChange={() => {
                             setTheme(theme === 'dark' ? 'light' : 'dark')
                         }}
                     >
                         Airplane mode
-                    </Switch>
+                    </Switch> */}
                     <Button
                         as={Link}
                         radius="sm"

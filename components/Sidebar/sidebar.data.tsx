@@ -37,3 +37,54 @@ export const calculators: item[] = [
         link: '/matrix',
     },
 ]
+
+export const converters: item[] = [
+    {
+        icon: <Weight />,
+        title: 'Mass',
+        link: '#',
+    },
+    {
+        icon: <Timer />,
+        title: 'Time',
+        link: '#',
+    },
+    {
+        icon: <Ruler />,
+        title: 'Length',
+        link: '#',
+    },
+    {
+        icon: <Cube />,
+        title: 'Volume',
+        link: '#',
+    },
+    {
+        icon: <Square />,
+        title: 'Area',
+        link: '#',
+    },
+    {
+        icon: <TemperatureLow />,
+        title: 'Tempearture',
+        link: '#',
+    },
+]
+
+export const general: item[] = [
+    {
+        icon: <Settings />,
+        title: 'Settings',
+        link: '#',
+    },
+    {
+        icon: <WhiteFlag />,
+        title: 'Reports',
+        link: '#',
+    },
+    {
+        icon: <InfoCircle />,
+        title: 'Info',
+        link: '#',
+    },
+]

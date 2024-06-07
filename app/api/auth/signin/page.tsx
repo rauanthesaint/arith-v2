@@ -29,7 +29,7 @@ export default function Page() {
                 formData,
                 { withCredentials: true }
             )
-            if (response.status === 200) router.push('/settings')
+            if (response.status === 200) router.push('/engineering')
         } catch (error) {
             console.error('Error:', error)
         }
@@ -40,56 +40,37 @@ export default function Page() {
                 <h1 className="text-2xl text-center font-semibold">
                     Sign in for Arithmetica
                 </h1>
-
-                <div className="bg-neutral-800 rounded-lg">
-                    <Input
-                        classNames={{
-                            inputWrapper:
-                                'bg-neutral-800 group-data-[focus=true]:bg-neutral-800 shadow-none',
-                        }}
-                        label="E-mail"
-                        placeholder="example@domain.domain"
-                        size="lg"
-                        name="email"
-                        id="email"
-                        onChange={handleChange}
-                        value={formData.email}
-                    />
-                    <Input
-                        classNames={{
-                            inputWrapper:
-                                'bg-neutral-800 group-data-[focus=true]:bg-neutral-800',
-                        }}
-                        label="Password"
-                        radius="sm"
-                        type="password"
-                        size="lg"
-                        name="password"
-                        id="password"
-                        onChange={handleChange}
-                        value={formData.password}
-                    />
-                </div>
-                <div>
-                    <Button
-                        fullWidth
-                        type="submit"
-                        size="lg"
-                        radius="sm"
-                        color="primary"
-                    >
-                        Next
-                    </Button>
-                    <Spacer y={4} />
-                    <p className="text-center">
-                        <Link href="@">
-                            I&nbsp;forgot or&nbsp;don&rsquo;t have access
-                            to&nbsp;my&nbsp;email
-                        </Link>
-                        <Spacer y={1} />
-                        <Link href="@">I&nbsp;forgot my&nbsp;password</Link>
-                    </p>
-                </div>
+                <Spacer y={8} />
+                <Input
+                    label="E-mail"
+                    size="lg"
+                    placeholder="example@domain.domain"
+                    onChange={handleChange}
+                    value={formData.email}
+                    name="email"
+                    id="email"
+                />
+                <Spacer y={4} />
+                <Input
+                    label="Password"
+                    size="lg"
+                    onChange={handleChange}
+                    value={formData.password}
+                    name="password"
+                    id="password"
+                    type="password"
+                />
+                <Spacer y={12} />
+                <Button fullWidth type="submit" color="secondary">
+                    Next
+                </Button>
+                <Spacer y={4} />
+                <p className="text-center">
+                    <Link color="primary" href="#">
+                        I&nbsp;forgot or&nbsp;don&rsquo;t have access
+                        to&nbsp;my&nbsp;email
+                    </Link>
+                </p>
             </form>
         </main>
     )

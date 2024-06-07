@@ -1,7 +1,7 @@
 @import '../globals.scss';
 .content {
     position: absolute;
-    background: $secondary-color-900;
+    background: hsl(var(--app-default-50));
 
     &.left {
         inset: 0 auto 0 0;

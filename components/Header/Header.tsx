@@ -12,6 +12,7 @@ import {
     DropdownItem,
     DropdownMenu,
 } from '@nextui-org/react'
+import { handleClickLogOut } from '@/app/settings/handlers'
 const Header: FC = () => {
     const [user, setUser] = useState<{ name: string; email: string }>()
 
@@ -41,11 +42,7 @@ const Header: FC = () => {
 
     return (
         <header className={styles.header}>
-            <div></div>
             <div>
-                <Button isIconOnly radius="full" variant="flat">
-                    <Bell />
-                </Button>
                 <Dropdown>
                     <DropdownTrigger>
                         <Button
@@ -88,6 +85,7 @@ const Header: FC = () => {
                                 color="danger"
                                 className="text-danger"
                                 endContent={<LogOut />}
+                                onPress={handleClickLogOut}
                             >
                                 Log Out
                             </DropdownItem>

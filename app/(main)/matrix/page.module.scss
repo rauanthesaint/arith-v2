@@ -21,7 +21,7 @@ $terminal--height: 25rem;
         grid-template-rows: auto $terminal--height;
     }
 }
-$border: 1px solid var(--border-color);
+$border: 1px solid hsl(var(--app-default-300));
 .terminal {
     width: 100%;
     min-height: $terminal-header--height;
@@ -91,17 +91,17 @@ $border: 1px solid var(--border-color);
 //
 //
 .explorer {
-    border-right: 1px solid var(--border-color);
+    border-right: 1px solid hsl(var(--app-default-300));
     display: flex;
     flex-direction: column;
     overflow: hidden;
     & > header {
         padding: 8px 16px;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid hsl(var(--app-default-300));
     }
     & > footer {
         padding: 8px 16px;
-        border-top: 1px solid var(--border-color);
+        border-top: 1px solid hsl(var(--app-default-300));
     }
 
     .list {
@@ -126,7 +126,7 @@ $border: 1px solid var(--border-color);
                     display: flex;
                 }
             }
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid hsl(var(--app-default-300));
             display: flex;
             .index {
                 height: 2rem;
@@ -135,7 +135,7 @@ $border: 1px solid var(--border-color);
                 place-content: center;
             }
             .details {
-                border-left: 1px solid var(--border-color);
+                border-left: 1px solid hsl(var(--app-default-300));
                 display: flex;
                 flex-direction: column;
                 gap: 4px;

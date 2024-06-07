@@ -2,7 +2,7 @@
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
         rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     position: absolute;
-    background: var(--secondary-color-800);
+    background: hsl(var(--app-default-100));
     min-width: 16rem;
     width: max-content;
     height: max-content;
@@ -36,7 +36,7 @@
             padding: 8px;
             display: grid;
             place-content: center;
-            border: 1px solid var(--secondary-color-700);
+            border: 1px solid hsl(var(--app-default-300));
             border-radius: 4px;
         }
     }

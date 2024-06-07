@@ -10,6 +10,7 @@ import { parse } from 'mathjs'
 import validateExpression from '@/utils/math/validator'
 
 import { getRandomColor } from '@/utils/math/Graphing/utils'
+import { Button } from '@nextui-org/react'
 
 export default function Page() {
     const [elements, setElements] = useState<{ color: string; fn: string }[]>(
@@ -61,10 +62,18 @@ export default function Page() {
     return (
         <main className={styles.page}>
             <aside className={styles.explorer}>
-                <header>
+                <header className="justify-between">
                     <Label size="sm" className="unselectable" type="secondary">
                         Explorer
                     </Label>
+                    <Button
+                        size="sm"
+                        radius="none"
+                        variant="light"
+                        onPress={() => setElements([])}
+                    >
+                        Clear All
+                    </Button>
                 </header>
                 <ul className={styles.list}>
                     {elements.map((elem, index) => {

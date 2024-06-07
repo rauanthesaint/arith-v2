@@ -2,15 +2,15 @@ $default-width: 95%;
 
 .header {
     height: 4rem;
-
-    border-bottom: 1px solid hsl(var(--app-neutral-700));
+    background-color: hsl(var(--app-default-100));
+    border-bottom: 1px solid hsl(var(--app-default-300));
     & > .container {
         height: 100%;
         width: min($default-width, 1280px);
 
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
     }
 }
 
@@ -19,12 +19,9 @@ $default-width: 95%;
 }
 
 .layout > .container {
-    width: min($default-width, 480px);
+    width: min($default-width, 320px);
     main form {
         margin-top: clamp(5vw, 20%, 7vw);
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
     }
 }

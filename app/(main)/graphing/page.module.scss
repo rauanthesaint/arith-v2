@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 16rem auto;
 }
-$border: 1px solid var(--border-color);
+$border: 1px solid hsl(var(--app-default-300));
 .explorer {
     display: grid;
     overflow: hidden;
