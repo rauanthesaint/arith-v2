@@ -37,7 +37,7 @@ export const calculators: item[] = [
         link: '/matrix',
     },
     {
-        icon: <Ruler/>,
+        icon: <Ruler />,
         title: 'Converter',
         link: '/converter',
     },
@@ -80,7 +80,7 @@ export const general: item[] = [
     {
         icon: <Settings />,
         title: 'Settings',
-        link: '#',
+        link: '/settings',
     },
     {
         icon: <WhiteFlag />,
