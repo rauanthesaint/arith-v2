@@ -13,11 +13,13 @@ import {
     Weight,
     WhiteFlag,
 } from 'iconoir-react'
+import { MoneySquare } from 'iconoir-react/regular'
 
 type item = {
     icon: ReactNode
     title: string
     link: string
+    type?: any 
 }
 
 export const calculators: item[] = [
@@ -48,32 +50,47 @@ export const converters: item[] = [
         icon: <Weight />,
         title: 'Mass',
         link: '#',
+        type: 'weight'
+
     },
     {
         icon: <Timer />,
         title: 'Time',
         link: '#',
+        type: 'time'
+
     },
     {
         icon: <Ruler />,
         title: 'Length',
         link: '#',
+        type: 'distance'
+
     },
-    {
-        icon: <Cube />,
-        title: 'Volume',
-        link: '#',
-    },
-    {
-        icon: <Square />,
-        title: 'Area',
-        link: '#',
-    },
+    // {
+    //     icon: <Cube />,
+    //     title: 'Volume',
+    //     link: '#',
+    //     type: 'weight'
+
+    // },
+    // {
+    //     icon: <Square />,
+    //     title: 'Area',
+    //     link: '#',
+    // },
     {
         icon: <TemperatureLow />,
         title: 'Tempearture',
         link: '#',
+        type: 'temperature'
     },
+    {
+        icon: <MoneySquare/>, 
+        title: 'Currency',
+        link: '', 
+        type: 'currency'
+    }
 ]
 
 export const general: item[] = [
